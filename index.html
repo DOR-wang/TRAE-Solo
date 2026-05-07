@@ -1,18 +1,18 @@
-&lt;!DOCTYPE html&gt;
-&lt;html lang="zh-CN"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;像素机甲对战&lt;/title&gt;
-    &lt;style&gt;
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap');
-        
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像素机甲对战</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             background: #0a0a1a;
             display: flex;
@@ -22,19 +22,19 @@
             font-family: 'Press Start 2P', cursive;
             overflow: hidden;
         }
-        
+
         .game-container {
             position: relative;
             border: 4px solid #888888;
             box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
         }
-        
+
         #gameCanvas {
             display: block;
             image-rendering: pixelated;
             image-rendering: crisp-edges;
         }
-        
+
         .overlay {
             position: absolute;
             top: 0;
@@ -49,68 +49,68 @@
             color: #ffffff;
             text-align: center;
         }
-        
+
         .overlay.hidden {
             display: none;
         }
-        
+
         .title {
             font-size: 24px;
             margin-bottom: 40px;
             color: #00ffcc;
             text-shadow: 4px 4px 0 #ff3366;
         }
-        
+
         .winner-text {
             font-size: 32px;
             margin-bottom: 30px;
             animation: blink 0.5s infinite;
         }
-        
+
         .winner-text.player1 {
             color: #00ffcc;
             text-shadow: 2px 2px 0 #009988;
         }
-        
+
         .winner-text.player2 {
             color: #ff3366;
             text-shadow: 2px 2px 0 #cc2255;
         }
-        
+
         @keyframes blink {
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0.5; }
         }
-        
+
         .instructions {
             font-size: 10px;
             line-height: 2;
             margin-bottom: 30px;
         }
-        
+
         .instructions-row {
             display: flex;
             gap: 60px;
             margin-bottom: 20px;
         }
-        
+
         .instructions-col {
             text-align: left;
         }
-        
+
         .instructions-col h3 {
             font-size: 12px;
             margin-bottom: 15px;
         }
-        
+
         .player1-header {
             color: #00ffcc;
         }
-        
+
         .player2-header {
             color: #ff3366;
         }
-        
+
         .key {
             display: inline-block;
             background: #333333;
@@ -120,7 +120,7 @@
             min-width: 30px;
             text-align: center;
         }
-        
+
         .start-btn, .restart-btn {
             font-family: 'Press Start 2P', cursive;
             font-size: 14px;
@@ -131,50 +131,50 @@
             cursor: pointer;
             transition: all 0.1s;
         }
-        
+
         .start-btn:hover, .restart-btn:hover {
             background: #00ddaa;
             transform: scale(1.05);
         }
-        
+
         .start-btn:active, .restart-btn:active {
             transform: scale(0.95);
         }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="game-container"&gt;
-        &lt;canvas id="gameCanvas" width="960" height="540"&gt;&lt;/canvas&gt;
-        
-        &lt;div id="startScreen" class="overlay"&gt;
-            &lt;h1 class="title"&gt;像素机甲对战&lt;/h1&gt;
-            &lt;div class="instructions"&gt;
-                &lt;div class="instructions-row"&gt;
-                    &lt;div class="instructions-col"&gt;
-                        &lt;h3 class="player1-header"&gt;玩家 1 (蓝色)&lt;/h3&gt;
-                        &lt;p&gt;&lt;span class="key"&gt;A&lt;/span&gt;&lt;span class="key"&gt;D&lt;/span&gt; 移动&lt;/p&gt;
-                        &lt;p&gt;&lt;span class="key"&gt;W&lt;/span&gt; 攻击&lt;/p&gt;
-                        &lt;p&gt;&lt;span class="key"&gt;S&lt;/span&gt; 防御&lt;/p&gt;
-                    &lt;/div&gt;
-                    &lt;div class="instructions-col"&gt;
-                        &lt;h3 class="player2-header"&gt;玩家 2 (红色)&lt;/h3&gt;
-                        &lt;p&gt;&lt;span class="key"&gt;←&lt;/span&gt;&lt;span class="key"&gt;→&lt;/span&gt; 移动&lt;/p&gt;
-                        &lt;p&gt;&lt;span class="key"&gt;↑&lt;/span&gt; 攻击&lt;/p&gt;
-                        &lt;p&gt;&lt;span class="key"&gt;↓&lt;/span&gt; 防御&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;p&gt;&lt;span class="key"&gt;R&lt;/span&gt; 重新开始&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;button class="start-btn" onclick="startGame()"&gt;开始游戏&lt;/button&gt;
-        &lt;/div&gt;
-        
-        &lt;div id="endScreen" class="overlay hidden"&gt;
-            &lt;h1 id="winnerText" class="winner-text"&gt;玩家 1 获胜!&lt;/h1&gt;
-            &lt;button class="restart-btn" onclick="restartGame()"&gt;再来一局&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="960" height="540"></canvas>
 
-    &lt;script&gt;
+        <div id="startScreen" class="overlay">
+            <h1 class="title">像素机甲对战</h1>
+            <div class="instructions">
+                <div class="instructions-row">
+                    <div class="instructions-col">
+                        <h3 class="player1-header">玩家 1 (蓝色)</h3>
+                        <p><span class="key">A</span><span class="key">D</span> 移动</p>
+                        <p><span class="key">W</span> 攻击</p>
+                        <p><span class="key">S</span> 防御</p>
+                    </div>
+                    <div class="instructions-col">
+                        <h3 class="player2-header">玩家 2 (红色)</h3>
+                        <p><span class="key">←</span><span class="key">→</span> 移动</p>
+                        <p><span class="key">↑</span> 攻击</p>
+                        <p><span class="key">↓</span> 防御</p>
+                    </div>
+                </div>
+                <p><span class="key">R</span> 重新开始</p>
+            </div>
+            <button class="start-btn" onclick="startGame()">开始游戏</button>
+        </div>
+
+        <div id="endScreen" class="overlay hidden">
+            <h1 id="winnerText" class="winner-text">玩家 1 获胜!</h1>
+            <button class="restart-btn" onclick="restartGame()">再来一局</button>
+        </div>
+    </div>
+
+    <script>
         const CANVAS_WIDTH = 960;
         const CANVAS_HEIGHT = 540;
         const GROUND_Y = 450;
@@ -241,32 +241,32 @@
 
             update(deltaTime) {
                 this.animTimer += deltaTime;
-                if (this.animTimer &gt; 150) {
+                if (this.animTimer > 150) {
                     this.animTimer = 0;
                     this.animFrame = (this.animFrame + 1) % this.getFrameCount();
                 }
 
-                if (this.attackCooldown &gt; 0) {
+                if (this.attackCooldown > 0) {
                     this.attackCooldown -= deltaTime;
                 }
-                if (this.attackTimer &gt; 0) {
+                if (this.attackTimer > 0) {
                     this.attackTimer -= deltaTime;
-                    if (this.attackTimer &lt;= 0) {
+                    if (this.attackTimer <= 0) {
                         this.isAttacking = false;
                         if (!this.isDefending) {
                             this.state = ANIMATION_STATES.IDLE;
                         }
                     }
                 }
-                if (this.hitTimer &gt; 0) {
+                if (this.hitTimer > 0) {
                     this.hitTimer -= deltaTime;
                 }
 
-                if (!this.isAttacking &amp;&amp; !this.isDefending &amp;&amp; this.hitTimer &lt;= 0) {
-                    const moveKey = this.isPlayer1 ? 
+                if (!this.isAttacking && !this.isDefending && this.hitTimer <= 0) {
+                    const moveKey = this.isPlayer1 ?
                         (keys['a'] || keys['A'] ? -1 : (keys['d'] || keys['D'] ? 1 : 0)) :
                         (keys['ArrowLeft'] ? -1 : (keys['ArrowRight'] ? 1 : 0));
-                    
+
                     if (moveKey !== 0) {
                         this.x += moveKey * MOVE_SPEED;
                         this.facing = moveKey;
@@ -282,7 +282,7 @@
             }
 
             attack() {
-                if (this.attackCooldown &lt;= 0 &amp;&amp; !this.isDefending) {
+                if (this.attackCooldown <= 0 && !this.isDefending) {
                     this.isAttacking = true;
                     this.state = ANIMATION_STATES.ATTACK;
                     this.attackTimer = ATTACK_DURATION;
@@ -309,17 +309,17 @@
                 const actualDamage = this.isDefending ? damage * DEFENSE_REDUCTION : damage;
                 this.health = Math.max(0, this.health - actualDamage);
                 this.hitTimer = 200;
-                if (!this.isAttacking &amp;&amp; !this.isDefending) {
+                if (!this.isAttacking && !this.isDefending) {
                     this.state = ANIMATION_STATES.HIT;
                 }
                 this.createHitParticles();
-                return this.health &lt;= 0;
+                return this.health <= 0;
             }
 
             getAttackHitbox() {
                 if (!this.isAttacking) return null;
                 return {
-                    x: this.facing &gt; 0 ? this.x + this.width : this.x - ATTACK_RANGE,
+                    x: this.facing > 0 ? this.x + this.width : this.x - ATTACK_RANGE,
                     y: this.y + 20,
                     width: ATTACK_RANGE,
                     height: this.height - 40
@@ -346,9 +346,9 @@
             }
 
             createAttackParticles() {
-                const px = this.facing &gt; 0 ? this.x + this.width : this.x;
+                const px = this.facing > 0 ? this.x + this.width : this.x;
                 const py = this.y + this.height / 2;
-                for (let i = 0; i &lt; 8; i++) {
+                for (let i = 0; i < 8; i++) {
                     particles.push({
                         x: px,
                         y: py,
@@ -365,7 +365,7 @@
             createHitParticles() {
                 const px = this.x + this.width / 2;
                 const py = this.y + this.height / 2;
-                for (let i = 0; i &lt; 12; i++) {
+                for (let i = 0; i < 12; i++) {
                     particles.push({
                         x: px,
                         y: py,
@@ -382,11 +382,11 @@
             draw(ctx) {
                 ctx.save();
                 ctx.translate(this.x + this.width / 2, this.y);
-                if (this.facing &lt; 0) {
+                if (this.facing < 0) {
                     ctx.scale(-1, 1);
                 }
 
-                if (this.hitTimer &gt; 0 &amp;&amp; Math.floor(this.hitTimer / 50) % 2 === 0) {
+                if (this.hitTimer > 0 && Math.floor(this.hitTimer / 50) % 2 === 0) {
                     ctx.globalAlpha = 0.5;
                 }
 
@@ -397,20 +397,20 @@
                 ctx.fillStyle = this.secondaryColor;
                 this.drawPixelRect(ctx, -20, 80 + bobY + legOffset, 12, 40);
                 this.drawPixelRect(ctx, 8, 80 + bobY - legOffset, 12, 40);
-                
+
                 ctx.fillStyle = '#1a1a2e';
                 this.drawPixelRect(ctx, -22, 110 + bobY + legOffset, 16, 10);
                 this.drawPixelRect(ctx, 6, 110 + bobY - legOffset, 16, 10);
 
                 ctx.fillStyle = this.primaryColor;
                 this.drawPixelRect(ctx, -25, 30 + bobY, 50, 55);
-                
+
                 ctx.fillStyle = this.secondaryColor;
                 this.drawPixelRect(ctx, -20, 35 + bobY, 40, 45);
-                
+
                 ctx.fillStyle = this.primaryColor;
                 this.drawPixelRect(ctx, -15, 5 + bobY, 30, 30);
-                
+
                 ctx.fillStyle = '#ffffff';
                 this.drawPixelRect(ctx, 0, 12 + bobY, 12, 10);
                 ctx.fillStyle = this.isPlayer1 ? '#00ffff' : '#ff0000';
@@ -419,10 +419,10 @@
                 ctx.save();
                 ctx.translate(25, 45 + bobY);
                 ctx.rotate((armSwing + (this.state === ANIMATION_STATES.ATTACK ? this.animFrame * 20 : 0)) * Math.PI / 180);
-                
+
                 ctx.fillStyle = this.secondaryColor;
                 this.drawPixelRect(ctx, 0, -5, 25, 12);
-                
+
                 if (this.state === ANIMATION_STATES.ATTACK) {
                     ctx.fillStyle = this.primaryColor;
                     ctx.globalAlpha = 0.8;
@@ -441,7 +441,7 @@
                     ctx.arc(0, 60, 55, -Math.PI / 2, Math.PI / 2);
                     ctx.fill();
                     ctx.globalAlpha = 1;
-                    
+
                     ctx.strokeStyle = this.primaryColor;
                     ctx.lineWidth = 4;
                     ctx.beginPath();
@@ -462,7 +462,7 @@
             ctx = canvas.getContext('2d');
             ctx.imageSmoothingEnabled = false;
 
-            for (let i = 0; i &lt; 100; i++) {
+            for (let i = 0; i < 100; i++) {
                 stars.push({
                     x: Math.random() * CANVAS_WIDTH,
                     y: Math.random() * (GROUND_Y - 50),
@@ -471,40 +471,40 @@
                 });
             }
 
-            document.addEventListener('keydown', (e) =&gt; {
+            document.addEventListener('keydown', (e) => {
                 keys[e.key] = true;
-                
+
                 if (gameState === 'playing') {
-                    if ((e.key === 'w' || e.key === 'W') &amp;&amp; player1) {
+                    if ((e.key === 'w' || e.key === 'W') && player1) {
                         player1.attack();
                     }
-                    if (e.key === 'ArrowUp' &amp;&amp; player2) {
+                    if (e.key === 'ArrowUp' && player2) {
                         player2.attack();
                     }
-                    if ((e.key === 's' || e.key === 'S') &amp;&amp; player1) {
+                    if ((e.key === 's' || e.key === 'S') && player1) {
                         player1.defend(true);
                     }
-                    if (e.key === 'ArrowDown' &amp;&amp; player2) {
+                    if (e.key === 'ArrowDown' && player2) {
                         player2.defend(true);
                     }
                 }
-                
+
                 if (e.key === 'r' || e.key === 'R') {
                     if (gameState === 'playing' || gameState === 'ended') {
                         restartGame();
                     }
                 }
-                
+
                 e.preventDefault();
             });
 
-            document.addEventListener('keyup', (e) =&gt; {
+            document.addEventListener('keyup', (e) => {
                 keys[e.key] = false;
-                
-                if ((e.key === 's' || e.key === 'S') &amp;&amp; player1) {
+
+                if ((e.key === 's' || e.key === 'S') && player1) {
                     player1.defend(false);
                 }
-                if (e.key === 'ArrowDown' &amp;&amp; player2) {
+                if (e.key === 'ArrowDown' && player2) {
                     player2.defend(false);
                 }
             });
@@ -538,19 +538,19 @@
         }
 
         function checkCollision(a, b) {
-            return a.x &lt; b.x + b.width &amp;&amp;
-                   a.x + a.width &gt; b.x &amp;&amp;
-                   a.y &lt; b.y + b.height &amp;&amp;
-                   a.y + a.height &gt; b.y;
+            return a.x < b.x + b.width &&
+                   a.x + a.width > b.x &&
+                   a.y < b.y + b.height &&
+                   a.y + a.height > b.y;
         }
 
         function updateParticles(deltaTime) {
-            particles = particles.filter(p =&gt; {
+            particles = particles.filter(p => {
                 p.x += p.vx;
                 p.y += p.vy;
                 p.vy += 0.1;
                 p.life -= deltaTime;
-                return p.life &gt; 0;
+                return p.life > 0;
             });
         }
 
@@ -561,7 +561,7 @@
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-            stars.forEach(star =&gt; {
+            stars.forEach(star => {
                 star.twinkle += 0.05;
                 const alpha = 0.5 + Math.sin(star.twinkle) * 0.5;
                 ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
@@ -573,13 +573,13 @@
 
             ctx.strokeStyle = '#3a3a5a';
             ctx.lineWidth = 1;
-            for (let x = 0; x &lt; CANVAS_WIDTH; x += 40) {
+            for (let x = 0; x < CANVAS_WIDTH; x += 40) {
                 ctx.beginPath();
                 ctx.moveTo(x, GROUND_Y);
                 ctx.lineTo(x, CANVAS_HEIGHT);
                 ctx.stroke();
             }
-            for (let y = GROUND_Y; y &lt; CANVAS_HEIGHT; y += 20) {
+            for (let y = GROUND_Y; y < CANVAS_HEIGHT; y += 20) {
                 ctx.beginPath();
                 ctx.moveTo(0, y);
                 ctx.lineTo(CANVAS_WIDTH, y);
@@ -596,7 +596,7 @@
         function drawHealthBar(x, y, mech, isLeft) {
             ctx.fillStyle = COLORS.healthBarBg;
             ctx.fillRect(x, y, 200, 25);
-            
+
             ctx.fillStyle = COLORS.uiBorder;
             ctx.lineWidth = 3;
             ctx.strokeRect(x, y, 200, 25);
@@ -623,7 +623,7 @@
         }
 
         function drawParticles() {
-            particles.forEach(p =&gt; {
+            particles.forEach(p => {
                 const alpha = p.life / p.maxLife;
                 ctx.fillStyle = p.color;
                 ctx.globalAlpha = alpha;
@@ -648,12 +648,12 @@
                 const body1 = player1.getHitbox();
                 const body2 = player2.getHitbox();
 
-                if (hitbox1 &amp;&amp; checkCollision(hitbox1, body2)) {
+                if (hitbox1 && checkCollision(hitbox1, body2)) {
                     if (player2.takeDamage(ATTACK_DAMAGE)) {
                         endGame(player1);
                     }
                 }
-                if (hitbox2 &amp;&amp; checkCollision(hitbox2, body1)) {
+                if (hitbox2 && checkCollision(hitbox2, body1)) {
                     if (player1.takeDamage(ATTACK_DAMAGE)) {
                         endGame(player2);
                     }
@@ -661,8 +661,8 @@
             }
 
             drawBackground();
-            
-            if (player1 &amp;&amp; player2) {
+
+            if (player1 && player2) {
                 player1.draw(ctx);
                 player2.draw(ctx);
                 drawParticles();
@@ -675,6 +675,6 @@
         }
 
         window.onload = init;
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+    </script>
+</body>
+</html>
