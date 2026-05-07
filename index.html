@@ -120,7 +120,7 @@
         }
 
         .start-btn, .restart-btn {
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Courier New', Consolas, monospace;
             font-size: 14px;
             padding: 15px 30px;
             background: #00ffcc;
@@ -604,7 +604,7 @@
             ctx.fillRect(x + 3, y + 3, healthWidth, 19);
 
             ctx.fillStyle = COLORS.uiText;
-            ctx.font = '10px "Press Start 2P"';
+            ctx.font = '10px "Courier New", Consolas, monospace';
             ctx.textAlign = isLeft ? 'left' : 'right';
             const name = mech.isPlayer1 ? '玩家 1' : '玩家 2';
             ctx.fillText(name, isLeft ? x : x + 200, y - 10);
@@ -615,7 +615,7 @@
 
         function drawControlsHint() {
             ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-            ctx.font = '8px "Press Start 2P"';
+            ctx.font = '8px "Courier New", Consolas, monospace';
             ctx.textAlign = 'center';
             ctx.fillText('按 R 重新开始', CANVAS_WIDTH / 2, CANVAS_HEIGHT - 15);
         }
